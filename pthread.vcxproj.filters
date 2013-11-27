@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{6b074916-e501-4929-9789-4cabe453d33d}</UniqueIdentifier>
+      <Extensions>*.c;*.cpp</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{c8cb3bbd-a31a-4899-8ba6-eba45cd181da}</UniqueIdentifier>
+      <Extensions>*.h</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pthread\include\pthread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="pthread\include\pthread_atomic.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="pthread\include\pthread_impl.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="pthread\include\pthread_vita.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="pthread\include\sched.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pthread.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_barrier.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_cleanup.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_cond.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_eventflag_np.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_key.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_mbx_np.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_msgpipe_np.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_mutex.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_np.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_once.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_rwlock.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pthread_spin.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sched.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

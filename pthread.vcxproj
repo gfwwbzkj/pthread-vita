@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="debug|PSVita">
+      <Configuration>debug</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="release|PSVita">
+      <Configuration>release</Configuration>
+      <Platform>PSVita</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pthread\include\pthread.h" />
+    <ClInclude Include="pthread\include\pthread_atomic.h" />
+    <ClInclude Include="pthread\include\pthread_impl.h" />
+    <ClInclude Include="pthread\include\pthread_vita.h" />
+    <ClInclude Include="pthread\include\sched.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\pthread.c" />
+    <ClCompile Include="src\pthread_barrier.c" />
+    <ClCompile Include="src\pthread_cleanup.c" />
+    <ClCompile Include="src\pthread_cond.c" />
+    <ClCompile Include="src\pthread_eventflag_np.c" />
+    <ClCompile Include="src\pthread_key.c" />
+    <ClCompile Include="src\pthread_mbx_np.c" />
+    <ClCompile Include="src\pthread_msgpipe_np.c" />
+    <ClCompile Include="src\pthread_mutex.c" />
+    <ClCompile Include="src\pthread_np.c" />
+    <ClCompile Include="src\pthread_once.c" />
+    <ClCompile Include="src\pthread_rwlock.c" />
+    <ClCompile Include="src\pthread_spin.c" />
+    <ClCompile Include="src\sched.c" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}</ProjectGuid>
+    <RootNamespace>pthread</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|PSVita'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='PSP2 Release|PSVita'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='release|PSVita'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">pthread/lib/$(Configuration)/</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">pthread/lib/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">$(Configuration)/$(ProjectName)/</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">$(Configuration)/$(ProjectName)/</IntDir>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">*.obj%3b*.d%3b*.map%3b*.lst%3b*.pch%3b$(TargetPath)</ExtensionsToDeleteOnClean>
+    <ExtensionsToDeleteOnClean Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">*.obj%3b*.d%3b*.map%3b*.lst%3b*.pch%3b$(TargetPath)</ExtensionsToDeleteOnClean>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='PSP2 Release|PSVita'">../../builds/psp2/lib/$(Configuration)/</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='PSP2 Release|PSVita'">$(Configuration)/$(ProjectName)/</IntDir>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='PSP2 Release|PSVita'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">.suprx</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">.suprx</TargetExt>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">$(ProjectDir);$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">$(ProjectDir);$(IncludePath)</IncludePath>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">$(ProjectName)D</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release|PSVita'">
+    <ClCompile>
+      <AdditionalOptions> -Xblxcall=1 -Xquit=1 -Xc-=exceptions -Xc-=rtti %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SCE_PSP2_SDK_DIR)/host_tools/build/include;$(SCE_PSP2_SDK_DIR)/target/include;$(SCE_PSP2_SDK_DIR)/target/include_common;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SN_TARGET_PSP2;NDEBUG;__SNC__;_SCE_TARGET_OS_PSP2;PRX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)vc90.pdb</ProgramDataBaseFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <OptimizationLevel>Level3</OptimizationLevel>
+      <InstructionSet>ARM</InstructionSet>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+    <Link>
+      <ImportLibrary>$(OutDir)$(TargetName)_stub.a</ImportLibrary>
+    </Link>
+    <Link>
+      <GenerateSnMapFile>None</GenerateSnMapFile>
+      <AdditionalOptions>-Wl,--disable-warning=339 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug|PSVita'">
+    <ClCompile>
+      <AdditionalOptions> -Xblxcall=1 -Xquit=1 -Xc-=exceptions -Xc-=rtti %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(SCE_PSP2_SDK_DIR)/host_tools/build/include;$(SCE_PSP2_SDK_DIR)/target/include;$(SCE_PSP2_SDK_DIR)/target/include_common;../;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SN_TARGET_PSP2;DEBUG;__SNC__;_SCE_TARGET_OS_PSP2;PRX_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ProgramDataBaseFileName>$(IntDir)vc90.pdb</ProgramDataBaseFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <InlineFunctionDebug>false</InlineFunctionDebug>
+      <InstructionSet>ARM</InstructionSet>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+    <Link>
+      <AdditionalOptions>-Wl,--disable-warning=339 %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

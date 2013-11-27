@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pthread", "pthread.vcxproj", "{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|PSVita = debug|PSVita
+		release|PSVita = release|PSVita
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}.debug|PSVita.ActiveCfg = debug|PSVita
+		{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}.debug|PSVita.Build.0 = debug|PSVita
+		{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}.release|PSVita.ActiveCfg = release|PSVita
+		{7CE4DC68-0810-41F2-B9D8-A6244BDC64A3}.release|PSVita.Build.0 = release|PSVita
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
